@@ -17,7 +17,7 @@ It allows the user to extract the range of a text specifically. The input text c
 
 ## Build Setup
 
-    go get github.com/renleimlj/selpg
+    go get github.com/renleimlj/selpg-in-Go
 
 ## Usage
 
