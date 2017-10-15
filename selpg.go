@@ -57,7 +57,7 @@ func process_args(sa *Selpg_args) {
 	if sa.start_page < 0 || sa.start_page > sa.end_page || sa.end_page < 0 {
 		fmt.Fprintf(os.Stderr, "The range of the page is invalid")
 		flag.Usage()
-		os.Exit(4)
+		os.Exit(2)
 	}
 }
 
@@ -81,7 +81,7 @@ func process_input(sa *Selpg_args) {
 		fname, err := os.Open(sa.in_filename)
 		if err != nil {
 			fmt.Println(err)
-			os.Exit(5)
+			os.Exit(3)
 		}
 		reader := bufio.NewReader(fname)
 		counter := 0
@@ -92,7 +92,7 @@ func process_input(sa *Selpg_args) {
 			}
 			if err != nil {
 				fmt.Println(err)
-				os.Exit(6)
+				os.Exit(4)
 			}
 			positions := counter/sa.page_len
 			if positions <= sa.end_page && positions >= sa.start_page {
