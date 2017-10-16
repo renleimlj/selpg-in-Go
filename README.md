@@ -1,7 +1,8 @@
 # selpg-in-Go
+
 An assignment for course : service computing.
 
-# Selpg
+## Selpg
 
 Selpg represents SELect PaGes.
 
@@ -29,6 +30,24 @@ It allows the user to extract the range of a text specifically. The input text c
 1. [filename] ---------- Read input from this file.
 
 1. If filename is not given, it will read input from stdin. Ctrl+D to cutout.
+
+## Use package flag
+
+Package flag can be used to analysis the command tag easily.
+
+* `flag.Usage = func(){}` is a function to output the defined command arguments and usage message.
+
+* `flag.XxxVar()` can be used to bound tag to a specified variable.
+
+* `flag.Parse()` can be used to analysis the command arguments and pass them into defined tags eventually.
+
+## Use package bufio
+
+Package bufio provides operations to achieve I/O with buffer memory.
+
+* `func NewScanner(r io.Reader) *Scanner` : NewScanner create and return a Scanner which reads data from r and the default cut-apart function is ScanLines.
+
+* `func NewReader(rd io.Reader) *Reader` : NewReader create and return a Reader which reads data from file rd.
 
 ## Test
 
