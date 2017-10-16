@@ -82,7 +82,7 @@ Create a txt file named test.txt to test if this selpg code can run and get corr
     This were to be new made when thou art old
     And see thy blood warm when thou feel'st cold.
 
-* Test `selpg -s 1 -e 1  -l 20 test`
+* Test `./selpg -s 1 -e 1  -l 20 test`
 
         To say within thine own deep-sunken eyes
         Were an all-eating shame and thriftless praise.
@@ -93,7 +93,7 @@ Create a txt file named test.txt to test if this selpg code can run and get corr
         This were to be new made when thou art old
         And see thy blood warm when thou feel'st cold.
 
-* Test `cat test | selpg -s 2 -e 3 -l 5`
+* Test `cat test | ./selpg -s 2 -e 3 -l 5`
 
         Within thine own bud buriest thy content
         And, tender churl, mak'st waste in niggarding.
@@ -106,7 +106,7 @@ Create a txt file named test.txt to test if this selpg code can run and get corr
         Then being asked where all thy beauty lies,
         Where all the treasure of thy lusty days,
 
-* Test `selpg -s=1 -e=1 -l 6 < test`
+* Test `./selpg -s=1 -e=1 -l 6 < test`
 
         Making a famine where abundance lies,
         Thyself thy foe, to thy sweet self too cruel.
@@ -121,7 +121,7 @@ Create a txt file named test.txt to test if this selpg code can run and get corr
         Thy youth's proud livery, so gazed on now,
         Will be a tottered weed of small worth held:
 
-* Test `selpg -s 2 -e 2 -l 5 test >output`
+* Test `./selpg -s 2 -e 2 -l 5 test >output`
 
         Within thine own bud buriest thy content
         And, tender churl, mak'st waste in niggarding.
@@ -130,7 +130,7 @@ Create a txt file named test.txt to test if this selpg code can run and get corr
         WHEN forty winters shall besiege thy brow
     以上是output文件中的内容，可以通过 `more output` 来查看。
 
-* Test `selpg -s -2 -e 1 -l 5 test >output 2 > error`
+* Test `./selpg -s -2 -e 1 -l 5 test >output 2 > error`
 
     输入 `more output`，查看得到usage讲解：
 
@@ -144,7 +144,7 @@ Create a txt file named test.txt to test if this selpg code can run and get corr
 
         The range of the page is invalid
 
-* Test `selpg -s 2 -l 5 test>output 2>error`
+* Test `./selpg -s 2 -l 5 test>output 2>error`
 
     输入 `more output`，查看得到usage讲解：
 
