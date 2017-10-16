@@ -6,6 +6,7 @@ import (
 	"os"
 	"flag"
 	"bufio"
+	"os/exec"
 )
 
 type Selpg_args struct {
@@ -14,6 +15,7 @@ type Selpg_args struct {
 	in_filename string
 	page_len int
 	page_type int
+	print_dest string
 }
 /* save name by which program is invoked, for error messages */
 var progname string
@@ -26,7 +28,11 @@ func main() {
 	flag.IntVar(&sa.end_page, "e", -1, "ep")
 	flag.IntVar(&sa.page_len, "l", 72, "length/p")
 	flag.IntVar(&sa.page_type, "f", 0, "line/form-feed")
+	print_dest := flag.String("d", "", "print dest")
 	flag.Parse()
+	if *print_dest  != "" {
+		sa.print_dest = *print_dest
+	}
 	process_args(&sa)
 	process_input(&sa)
 }
@@ -36,6 +42,7 @@ func usage() {
 	fmt.Println("\tselpg -s=Number -e=Number [options] [filename]")
 	fmt.Println("\t\t-l ---------- Determine the number of lines per page and default is 72.")
 	fmt.Println("\t\t-f ---------- Determine the type and the way to be seprated.")
+	fmt.Println("\t\t-d ---------- Determine the destination of output.")
 	fmt.Println("\t\t[filename] ---------- Read input from this file.")
 	fmt.Println("\t\tIf filename is not given, it will read input from stdin. Ctrl+D to cutout.")
 }
@@ -100,5 +107,15 @@ func process_input(sa *Selpg_args) {
 			}
 			counter++
 		}
+	}
+	cmd := exec.Command("cat", "-n")
+	stdin, err := cmd.StdinPipe()
+	if err != nil {
+		panic(err)
+	}
+	if sa.print_dest != "" {
+		stdin.Close()
+		cmd.Stdout = os.Stdout;
+		cmd.Start()
 	}
 }
